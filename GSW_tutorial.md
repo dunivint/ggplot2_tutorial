@@ -10,10 +10,13 @@ Understand how to make graphs in R
 * Make and adjust graphs in ggplot2
 
 ---
-
+## Getting started
+* Downloads
+* [R](https://www.r-project.org/)
+* [RStudio](https://www.rstudio.com/products/rstudio/)
 ---
 
-## Resources
+## More resources
 * Quick how-to's for graphing: [RCookbook](http://www.cookbook-r.com/Graphs/)
 * Amazing growth curve plotting tutorial: [by Brian Connelley](http://bconnelly.net/2014/04/analyzing-microbial-growth-with-r/)
 * Follow Hadley Wickham on twitter! [@hadleywickham](https://twitter.com/hadleywickham)
