@@ -9,8 +9,6 @@ Understand how to make graphs in R
 * Learn how to tidy data for plotting
 * Make and adjust graphs in ggplot2
 
----
-
 ## Getting started
 * Downloads
   * [R](https://www.r-project.org/)
@@ -21,7 +19,7 @@ Understand how to make graphs in R
 ## R and RStudio
 
 
----
+
 
 ## ggplot2
 
