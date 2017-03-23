@@ -14,6 +14,6 @@ Understand how to make graphs in R
 ---
 
 ## Resources
-* Quick how-to's for graphing: ![RCookbook](http://www.cookbook-r.com/Graphs/)
-* Amazing growth curve plotting tutorial: ![by Brian Connelley](http://bconnelly.net/2014/04/analyzing-microbial-growth-with-r/)
-* Follow Hadley Wickham on twitter! ![@hadleywickham](https://twitter.com/hadleywickham)
+* Quick how-to's for graphing: [RCookbook](http://www.cookbook-r.com/Graphs/)
+* Amazing growth curve plotting tutorial: [by Brian Connelley](http://bconnelly.net/2014/04/analyzing-microbial-growth-with-r/)
+* Follow Hadley Wickham on twitter! [@hadleywickham](https://twitter.com/hadleywickham)
