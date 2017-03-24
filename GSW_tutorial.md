@@ -98,12 +98,18 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 ![simple_violin](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_violin.jpeg)
 
 * Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
-* One last part of basics is statistical transformations... like histograms
+
+
+### Statistics and other data adjustments
+* First we'll look at statistical transformations... like histograms
+* R will do the calculations from our original iris dataset, so we don't need to speciy a y value
+* Lets look at sepal width counts in the dataset
 ```
-ggplot(iris, aes(x=Species, y=Sepal.Width)) +
+ggplot(iris, aes(x=Sepal.Width)) +
   geom_histogram()
 ```
-~
+![histo](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/histo.jpg)
+
 * We can do more with this by selecting our binwidth
 ```
 ggplot(iris, aes(x=Sepal.Width)) +
@@ -112,7 +118,22 @@ ggplot(iris, aes(x=Sepal.Width)) +
 * Below are two images with only binwidth changed from 0.2 and 0.02
 ![bins](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/bins.jpg)
 
-### 
+* We know that there are three types of flowers in these sepal width counts... how do we visualize those?
+ * We can use ```fill`` which is an aesthetic, so it will go in the () of ```aes()```
+ * Fill gives the inside color; color gives the outside color
+```
+ggplot(iris, aes(x=Sepal.Width, fill=Species)) +
+  geom_histogram(binwidth=0.2)
+```
+![histo_color](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/histo_color.jpg)
+
+ * What if we wanted to add black around each color so it's easier to see separations. Let's use ```color```
+ * We will add ```color``` to the ```geom_histogram``` since that is what we want to outline in black
+```
+ggplot(iris, aes(x=Sepal.Width, fill=Species)) +
+  geom_histogram(binwidth=0.2, color="black")
+```
+![histo_colorblack](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/histo.black.color.jpg)
 
 ---
 ## More resources
