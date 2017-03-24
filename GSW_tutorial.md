@@ -125,7 +125,7 @@ ggplot(iris, aes(x=Sepal.Width)) +
 ggplot(iris, aes(x=Sepal.Width, fill=Species)) +
   geom_histogram(binwidth=0.2)
 ```
-![histo_color](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/histo.color.jpg)
+![histo_color](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/histo.color.jpeg)
 
  * What if we wanted to add black around each color so it's easier to see separations. Let's use ```color```
  * We will add ```color``` to the ```geom_histogram``` since that is what we want to outline in black
