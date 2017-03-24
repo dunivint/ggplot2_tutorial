@@ -32,7 +32,6 @@ Understand how to make graphs in R
     * geometric object
     * statistical transformations
     * scales
-    * coordinate system
     * position adjustments
     * faceting
  
@@ -97,7 +96,21 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   geom_violin()
 ```
 ![simple_violin](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_violin.jpeg)
+
 * Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
+* One last part of basics is statistical transformations... like histograms
+```
+ggplot(iris, aes(x=Species, y=Sepal.Width)) +
+  geom_histogram()
+```
+~
+* We can do more with this by selecting our binwidth
+```
+ggplot(iris, aes(x=Sepal.Width)) +
+  geom_histogram(binwidth=0.2)
+```
+* Below are two images with only binwidth changed from 0.2 and 0.02
+![bins](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/bins.jpg)
 
 ### 
 
