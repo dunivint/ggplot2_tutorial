@@ -135,6 +135,22 @@ ggplot(iris, aes(x=Sepal.Width, fill=Species)) +
 ```
 ![histo_colorblack](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/histo.black.color.jpeg)
 
+### Data labeling
+* Lets start thinking about sepal length and sepal width
+```
+ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, color=Species)) +
+  geom_point()
+```
+* BUT we have data for three separate flowers... we can fix this by labeling the flower types with color
+```
+ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, color=Species)) +
+  geom_point()
+```
+* We can also label them with shapes!
+```
+ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, shape=Species)) +
+  geom_point()
+```
 ---
 ## More resources
 * [Quick how-to's for graphing](http://www.cookbook-r.com/Graphs/)
