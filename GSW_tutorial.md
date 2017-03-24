@@ -119,7 +119,7 @@ ggplot(iris, aes(x=Sepal.Width)) +
 ![bins](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/bins.jpg)
 
 * We know that there are three types of flowers in these sepal width counts... how do we visualize those?
- * We can use ```fill`` which is an aesthetic, so it will go in the () of ```aes()```
+ * We can use ```fill``` which is an aesthetic, so it will go in the () of ```aes()```
  * Fill gives the inside color; color gives the outside color
 ```
 ggplot(iris, aes(x=Sepal.Width, fill=Species)) +
