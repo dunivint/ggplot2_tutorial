@@ -42,7 +42,7 @@ Understand how to make graphs in R
     * 3 types of Irises
     * Sepal Length, Sepal Width, Petal Length and Petal Width for each Iris type
     * A snapshot of the dataset is shown below
-![Iris_dataset])(https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Iris_dataset.jpg)
+    * ![Iris_dataset](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Iris_dataset.jpg)
   * See code below to generate first plot
  
  ```
