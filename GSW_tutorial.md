@@ -108,7 +108,7 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 ggplot(iris, aes(x=Sepal.Width)) +
   geom_histogram()
 ```
-![histo](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/histo.jpg)
+![histo](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/histo.jpeg)
 
 * We can do more with this by selecting our binwidth
 ```
