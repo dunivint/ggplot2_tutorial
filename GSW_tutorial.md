@@ -36,13 +36,16 @@ Understand how to make graphs in R
     * position adjustments
     * faceting
  
- * We'll start with the basics: data and aesthetics
+### The basics
   * For this tutorial we will use the Iris dataset (comes with the R "datasets" package)
     * 150 flowers
     * 3 types of Irises
     * Sepal Length, Sepal Width, Petal Length and Petal Width for each Iris type
     * A snapshot of the dataset is shown below
     * ![Iris_dataset](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Iris_dataset.jpg)
+  * Here are the basic steps
+    * we will call on ggplot2 by saying ```ggplot2()```
+    * within the parentheses, we will specify the data first then add a comma then add basic aesthetics (x=, y=) ```ggplot2(data, aes(x= xname, y=yname))```
   * See code below to generate first plot
  
  ```
@@ -63,18 +66,40 @@ ggplot(iris, aes(x=Species, y=Sepal.Width))
 * ![simple_plot](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Simple_plot.jpeg)
 * We see the axes we set up with Species on the x-axis and Sepal Width on the y-axis but _no data_
 * We need to add a layer to tell R what we want to represent our data
-* Let's try this...
+  * This layer is "geom"
+  * To call on geom, we will add a line to our original code (```ggplot(data, aes(x=xname, y=yname))```)
+  * There are all kinds of geometric objects in R. To explore, start typing ```geom``` in RStudio and hit tab. R will give a list of possibilities
+  * If you are using the same x and y you described in ```aes()```, you can leave the ```()``` blank
+* Let's try some geometric objects...
 ```
 ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   geom_point()
 ```
+![simple_point](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_point.jpeg)
 
-* Now we have some datapoints, but they're not necessarily what we would want to see
-* Let's try a boxplot
+* Now we have some datapoints, but they're not necessarily what we would want to see. What if datapoints are overlapping?
+```
+ggplot(iris, aes(x=Species, y=Sepal.Width)) +
+  geom_count()
+```
+![simple_count](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_count.jpeg)
+* Here we get a better picture of where the points are, but a boxplot might still be better to visualize the data
 ```
 ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   geom_boxplot()
 ```
+![simple_boxplot](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_boxplot.jpeg)
+
+* R calculates all of the information required for boxplots for you! Woo!
+* Perhaps you prefer to see probability distributions through violin plots
+```
+ggplot(iris, aes(x=Species, y=Sepal.Width)) +
+  geom_violin()
+```
+![simple_violin](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_violin.jpeg)
+* Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
+
+### 
 
 ---
 ## More resources
