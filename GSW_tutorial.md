@@ -17,7 +17,7 @@ Understand how to make graphs in R
 ---
 
 ## R and RStudio
-[RStudio_diagram](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/RStudio_diagram.pdf)
+[RStudio_diagram](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/RStudio_diagram.jpg)
 
 
 
