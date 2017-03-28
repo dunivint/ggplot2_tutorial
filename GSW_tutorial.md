@@ -63,7 +63,7 @@ data=read.delim(iris)
 #let's make an easy plot
 ggplot(iris, aes(x=Species, y=Sepal.Width))
 ```
-* <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Simple_plot.jpeg" height="250">
+* <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Simple_plot.jpeg" height="300">
 * We see the axes we set up with Species on the x-axis and Sepal Width on the y-axis but _no data_
 * We need to add a layer to tell R what we want to represent our data
   * This layer is "geom"
@@ -75,20 +75,21 @@ ggplot(iris, aes(x=Species, y=Sepal.Width))
 ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   geom_point()
 ```
-![simple_point](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_point.jpeg)
+* <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_point.jpeg" height="300">
 
 * Now we have some datapoints, but they're not necessarily what we would want to see. What if datapoints are overlapping?
 ```
 ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   geom_count()
 ```
-![simple_count](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_count.jpeg)
+* <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_count.jpeg" height="300">
+
 * Here we get a better picture of where the points are, but a boxplot might still be better to visualize the data
 ```
 ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   geom_boxplot()
 ```
-![simple_boxplot](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_boxplot.jpeg)
+* <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_boxplot.jpeg" height="300">
 
 * R calculates all of the information required for boxplots for you! Woo!
 * Perhaps you prefer to see probability distributions through violin plots
@@ -96,7 +97,7 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   geom_violin()
 ```
-![simple_violin](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_violin.jpeg)
+* <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_violin.jpeg" height="300">
 
 * Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
 
