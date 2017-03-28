@@ -17,7 +17,7 @@ Understand how to make graphs in R
 ---
 
 ## R and RStudio
-<img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/RStudio_diagram.jpg" height="50" width="100">
+<img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/RStudio_diagram.jpg" height="300" width="500">
 
 
 [tidy_data](http://vita.had.co.nz/papers/tidy-data.pdf)
@@ -42,7 +42,7 @@ Understand how to make graphs in R
     * 3 types of Irises
     * Sepal Length, Sepal Width, Petal Length and Petal Width for each Iris type
     * A snapshot of the dataset is shown below
-    * ![Iris_dataset](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Iris_dataset.jpg)
+    * <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Iris_dataset.jpg" height="500">
   * Here are the basic steps
     * we will call on ggplot2 by saying ```ggplot2()```
     * within the parentheses, we will specify the data first then add a comma then add basic aesthetics (x=, y=) ```ggplot2(data, aes(x= xname, y=yname))```
@@ -63,7 +63,7 @@ data=read.delim(iris)
 #let's make an easy plot
 ggplot(iris, aes(x=Species, y=Sepal.Width))
 ```
-* ![simple_plot](https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Simple_plot.jpeg =250x)
+* <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Simple_plot.jpeg" height="250">
 * We see the axes we set up with Species on the x-axis and Sepal Width on the y-axis but _no data_
 * We need to add a layer to tell R what we want to represent our data
   * This layer is "geom"
