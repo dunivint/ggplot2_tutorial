@@ -158,3 +158,4 @@ ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, shape=Species)) +
 * Follow Hadley Wickham on twitter! [@hadleywickham](https://twitter.com/hadleywickham)
 * [ggplot2 help topics](http://docs.ggplot2.org/current/index.html)
 * [Amazing ggplot2 examples](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+* [Tutorials with R data](https://www.mailman.columbia.edu/sites/default/files/media/fdawg_ggplot2.html)
