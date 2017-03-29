@@ -9,6 +9,12 @@ Understand how to make graphs in R
 * Learn how to tidy data for plotting
 * Make and adjust graphs in ggplot2
 
+## Table of contents
+* [R and RStudio](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#r-and-rstudio)
+* [ggplot2](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#ggplot2)
+ * [The basics](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#the-basics)
+ * [Statistics and other data adjustments](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#statistics-and-other-data-adjustments)
+* [More resources](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#more-resources)
 ## Getting started
 * Downloads
   * [R](https://www.r-project.org/)
