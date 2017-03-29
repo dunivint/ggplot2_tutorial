@@ -23,9 +23,59 @@ Understand how to make graphs in R
 ---
 
 ## R and RStudio
+* RStudio is a user interface for R which makes coding simpler and plot visualization easier
+* Image (below) shows RStudio interface
 <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/RStudio_diagram.jpg" height="300" width="500">
 
+* Top left: Markdown
+ * Always write/ work in this section
+ * Run code from this section (code is sent to console) 
+ * Easy to adjust and save scripts
 
+* Bottom left: Console
+ * Where code is run/ calculations take place
+ * Shows errors, outputs, etc
+ * Code _can_ be typed here (but this makes corrections/ data-keeping more difficult) 
+
+* Top right: Environment/ history
+ * Environment: Shows objects you have created 
+ * History: Shows your coding history
+
+* Bottom right:
+ * Files: Your working directory (what folder you're in on your own computer) 
+ * Plot: view, export plots
+ * Packages: all your stored packages and which are active (checked)
+ * Help: shows manuals for all R packages
+
+* R has many packages useful for Biologists
+ 1. __Data tidying__
+  - [tidyr](https://cran.r-project.org/web/packages/tidyr/tidyr.pdf)
+  - plyr and [dplyr](https://cran.r-project.org/web/packages/dplyr/dplyr.pdf)
+  - reshape and [reshape2](https://cran.r-project.org/web/packages/reshape2/reshape2.pdf)
+ 2. __Phylogenetic trees__
+  - [ape](https://cran.r-project.org/web/packages/ape/ape.pdf): phylogenetic analysis, general
+  - [phytools](https://cran.r-project.org/web/packages/phytools/phytools.pdf): phylogenetic analysis, general
+  - [geiger](https://cran.r-project.org/web/packages/geiger/geiger.pdf): fitting macroevolutionary models to phylo trees
+  - [ggtree](https://bioconductor.org/packages/devel/bioc/manuals/ggtree/man/ggtree.pdf): visualizing phylogenetic trees
+ 3. __Growth curve analysis__
+  - [Grofit](https://cran.r-project.org/web/packages/grofit/grofit.pdf): fit growth curves, calculate growth parameters
+  - [nlme](https://cran.r-project.org/web/packages/nlme/nlme.pdf): fit and compare Gaussian linear and nonlinear mixed-effects models.
+ 4. __Statistics__
+  - [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html): so many statistics! (correlations, clustering, t tests, anova, standard deviation, and more)
+  - [psych](https://cran.r-project.org/web/packages/psych/psych.pdf): psychological tests but also correlations
+  - [vegan](https://cran.r-project.org/web/packages/vegan/vegan.pdf): ordinations, diversity analysis
+  - [pvclust](https://cran.r-project.org/web/packages/pvclust/pvclust.pdf): Hierarchical clustering
+ 5. __And so much more!__
+  - [survival](https://cran.r-project.org/web/packages/survival/survival.pdf): Survival analysis
+  - [qpcR](https://cran.r-project.org/web/packages/qpcR/qpcR.pdf): qPCR analysis
+  - [Other available packages](https://cran.r-project.org/web/packages/available_packages_by_name.html#available-packages-B)
+  
+ * To install a package, there is a simple function
+  ```
+  install.packages("packagename")
+  ```
+
+## Tidy data
 [tidy_data](http://vita.had.co.nz/papers/tidy-data.pdf)
 
 
