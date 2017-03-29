@@ -28,24 +28,24 @@ Understand how to make graphs in R
 <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/RStudio_diagram.jpg" height="300" width="500">
 
 * Top left: Markdown
- * Always write/ work in this section
- * Run code from this section (code is sent to console) 
- * Easy to adjust and save scripts
+  * Always write/ work in this section
+  * Run code from this section (code is sent to console) 
+  * Easy to adjust and save scripts
 
 * Bottom left: Console
- * Where code is run/ calculations take place
- * Shows errors, outputs, etc
- * Code _can_ be typed here (but this makes corrections/ data-keeping more difficult) 
+  * Where code is run/ calculations take place
+  * Shows errors, outputs, etc
+  * Code _can_ be typed here (but this makes corrections/ data-keeping more difficult) 
 
 * Top right: Environment/ history
- * Environment: Shows objects you have created 
- * History: Shows your coding history
+  * Environment: Shows objects you have created 
+  * History: Shows your coding history
 
 * Bottom right:
- * Files: Your working directory (what folder you're in on your own computer) 
- * Plot: view, export plots
- * Packages: all your stored packages and which are active (checked)
- * Help: shows manuals for all R packages
+  * Files: Your working directory (what folder you're in on your own computer) 
+  * Plot: view, export plots
+  * Packages: all your stored packages and which are active (checked)
+  * Help: shows manuals for all R packages
 
 * R has many packages useful for Biologists
  1. __Data tidying__
@@ -74,10 +74,25 @@ Understand how to make graphs in R
   ```
   install.packages("packagename")
   ```
+ * Just because a package is installed does not mean it is active. To activate...
+ ```
+ library(packagename)
+ ```
 
 ## Tidy data
-[tidy_data](http://vita.had.co.nz/papers/tidy-data.pdf)
+Tidy data is a specific data format that helps to distinguish between variables and observations. Tidy data is easy to manipulate for data visualization/ analysis. Tidy data is the current compilation of years of data tidying study. For more information on its history and applications, see [Tidy data](http://vita.had.co.nz/papers/tidy-data.pdf) by Hadley Wickham, creator of ggplot2.
 
+* Datasets start off in any format, but a clean or "tidy" dataset has only one style 
+* Variables => columns
+  * identity variables (ex: well A1 on a 96 well plate, time)
+  * measured variables (ex: optical density) 
+* Observations => rows
+  * the complete information from one sample 
+  * considers all identity and measured variables together
+  * example: OD of well A1 at time 0
+* The image below shows the difference between 
+
+  <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/datatypes.png" height="200">
 
 ## ggplot2
 * This system is widely used and flexible
