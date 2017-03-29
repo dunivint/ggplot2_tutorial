@@ -129,7 +129,10 @@ tidydata=melt(data, id.vars="Species", variable.name = "Identity", value.name="S
 #visualize the differences in the data
 head(tidydata)
 ```
-Now our data is tidy! 
+Now our data is tidy (long)! Note: tidying data can get more complicated with messier datasets which is why packages such as dplyr exist. Reshape2 can also work with more complex (semi-clean) datasets. For example, if you had more than one identity variable (such as species and treatment), you could incorporate that as follows: ```tidydata=melt(data, id.vars=c("Species", "Treatment"), variable.name = "Identity", value.name="Size")```
+
+Now that we know the basics of tidy data, lets get to plotting!
+
 
 ## ggplot2
 * This system is widely used and flexible
