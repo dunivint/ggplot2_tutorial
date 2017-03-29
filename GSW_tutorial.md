@@ -90,9 +90,46 @@ Tidy data is a specific data format that helps to distinguish between variables 
   * the complete information from one sample 
   * considers all identity and measured variables together
   * example: OD of well A1 at time 0
-* The image below shows the difference between 
-
+* The image below shows the difference between messy and tidy data (modified from [Tidy data](http://vita.had.co.nz/papers/tidy-data.pdf))
   <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/datatypes.png" height="200">
+* Tidy data is in "long" format rather than "wide"
+* Here is a quick example of data tidying in R
+  * For this tutorial we will use the Iris dataset (comes with the R "datasets" package)
+    * 150 flowers
+    * 3 types of Irises
+    * Sepal Length, Sepal Width, Petal Length and Petal Width for each Iris type
+    * A snapshot of the dataset is shown below
+    * <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/Iris_dataset.jpg" height="500">
+
+First we will install the required packages. Reshape2 will be used to tidy the data. We will use datasets to get an example dataset (Iris). 
+```
+#installed the required packates
+install.packages("reshape2")
+install.packages("datasets")
+
+#load required packages
+library(reshape2)
+library(datasets)
+```
+Now that we have our required packages, we will read in our data. Note: R can read many data types (.csv, .delim, .txt); the read functions are all very similar (```read.csv```, ```read.delim```, ```read.table```)
+```
+#read in data (here we will use a dataset from R datasets)
+data=read.delim(iris)
+
+#visualize the data (head shows first several rows in dataset; print would show whole dataset; tail shows bottom rows)
+head(data)
+```
+We can see here that our data is currently wide, not long. We have multiple measured variables in separate columns. We can change that with the ```melt()``` function. 
+    * we will call on melt by saying ```melt()```
+    * within the parentheses, we will specify the data first then add more information. If you are unsure about what to add, the tab key will bring up what typically goes inside that function. Here we will specify id.vars (what variable is our sample ID), variable.name (what you want to call your variable), and value.name (the name of your measured variable) ```id.vars="Species", variable.name = "Identity", value.name="Size")```
+```
+#tidy the data using melt
+tidydata=melt(data, id.vars="Species", variable.name = "Identity", value.name="Size")
+
+#visualize the differences in the data
+head(tidydata)
+```
+Now our data is tidy! 
 
 ## ggplot2
 * This system is widely used and flexible
