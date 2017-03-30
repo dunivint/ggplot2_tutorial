@@ -346,6 +346,7 @@ ggplot(data=stats, aes(x=time/3600, y=Average, group=Concentration)) +
      facet_wrap(~Strain, nrow=2) +
      labs(x="Time (Hours)", y="Optical Density 590 nm")
 ```
+Exercise: try adding another layer of themes! add a ```+``` to your last line of code, and on the next line, type theme, then hit tab. Several options will come up. Pick one, and see how it changes the look of the graph with one simple change. 
 
 ### Statistics and other data adjustments
 * First we'll look at statistical transformations... like histograms
