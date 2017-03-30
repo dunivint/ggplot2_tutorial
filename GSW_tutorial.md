@@ -238,6 +238,8 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   geom_boxplot() + 
   geom_jitter()
 ```
+* <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/boxdot.jpeg" height="300">
+
 
 * Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
 
