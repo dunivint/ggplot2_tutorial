@@ -13,7 +13,7 @@ Understand how to make graphs in R
 * [R and RStudio](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#r-and-rstudio)
 * [ggplot2](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#ggplot2)
  * [The basics](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#the-basics)
- * [Data labeling]()
+ * [Data labeling](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#data-labeling)
  * [Faceting/Growth curves](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#facetinggrowth-curve-analysis)
  * [Statistics and other data adjustments](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#statistics-and-other-data-adjustments)
 * [More resources](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#more-resources)
@@ -394,3 +394,4 @@ ggplot(iris, aes(x=Sepal.Width, fill=Species)) +
 * [ggplot2 help topics](http://docs.ggplot2.org/current/index.html)
 * [Amazing ggplot2 examples](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
 * [Tutorials with R data](https://www.mailman.columbia.edu/sites/default/files/media/fdawg_ggplot2.html)
+* [Coloring ggplot2 graphs](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
