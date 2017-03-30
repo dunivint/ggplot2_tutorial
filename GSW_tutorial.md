@@ -222,8 +222,16 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 ```
 * <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/simple_violin.jpeg" height="300">
 
-* Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
 
+We all probably use bar plots a lot. To make them in R we use ```geom_bar()```, but there is one extra step here. ```geom_bar()``` is actually a count function which will give a bar graph with count on the y-axis. If we want the bars to represent a measured y-value, we have to specify ```stat="identity"```
+
+```
+ggplot(iris, aes(x=Species, y=Sepal.Width)) +
+  geom_bar(stat="identity")
+```
+* <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/bar.jpeg" height="300">
+
+* Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
 
 ### Statistics and other data adjustments
 * First we'll look at statistical transformations... like histograms
