@@ -300,18 +300,15 @@ annotated$OD590=as.numeric(annotated$OD590)
 annotated$time=as.numeric(annotated$Time)
 
 # Group the data by the different experimental variables and calculate the
-# sample size, average OD600, and 95% confidence limits around the mean
-# among the replicates. Also remove all records where the Strain is NA.
-stats <- annotated %>%
+# sample size, average OD600, and standard deviation around the mean.
   group_by(Strain, Concentration, time) %>%
   summarise(N=length(OD590),
             Average=mean(OD590),
-            CI95=conf_int95(OD590)) %>%
-  filter(!is.na(Strain))
-
+            SD=sd(OD590))
+            
 # Plot the average OD600 over time for each strain in each environment
 ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
-  geom_ribbon(aes(ymin=Average-CI95, ymax=Average+CI95, color=Concentration),
+  geom_ribbon(aes(ymin=Average-SD, ymax=Average+SD, color=Concentration),
               color=NA, alpha=0.3) +
   geom_line(aes(color=Concentration)) +
   scale_color_gradientn(colours=rainbow(8)) +
