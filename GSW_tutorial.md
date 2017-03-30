@@ -231,6 +231,14 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 ```
 * <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/bar.jpeg" height="300">
 
+What if we wanted to make a boxplot that included individual datapoints? We can add another layer. We will use ```geom_jitter()``` rather than ```geom_point()``` because we want to spread out the data
+
+```
+ggplot(iris, aes(x=Species, y=Sepal.Width)) +
+  geom_boxplot() + 
+  geom_jitter()
+```
+
 * Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
 
 ### Statistics and other data adjustments
