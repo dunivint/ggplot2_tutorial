@@ -13,7 +13,7 @@ Understand how to make graphs in R
 * [R and RStudio](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#r-and-rstudio)
 * [ggplot2](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#ggplot2)
  * [The basics](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#the-basics)
- * [Faceting/Growth curves]()
+ * [Faceting/Growth curves](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#facetinggrowth-curve-analysis)
  * [Statistics and other data adjustments](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#statistics-and-other-data-adjustments)
 * [More resources](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#more-resources)
 ## Getting started
@@ -244,7 +244,7 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 
 * Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
 
-### Faceting/Growth curve analysis (simple)
+### Faceting/Growth curve analysis
 First we will read and tidy growth curve data
 * Most growth curve outputs will allow time in one column and well in every other column, so we will use this as an example
  * Most can also be exported as .csv
