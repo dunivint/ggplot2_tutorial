@@ -274,9 +274,6 @@ colnames(rawdata)=labels
 #remove s from time column
 rawdata$Time=gsub('s', '', rawdata$Time)
 
-#transform the data
-rawdata2=data.frame(t(rawdata))
-
 # Reshape the data. Instead of rows containing the Time, Temperature,
 # and readings for each Well, rows will contain the Time, Temperature, a
 # Well ID, and the reading at that Well.
