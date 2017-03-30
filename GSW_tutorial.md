@@ -318,6 +318,16 @@ ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concen
   facet_wrap(~Strain, nrow=2) +
   labs(x="Time (Hours)", y="Optical Density 590 nm")
 ```
+A quick note on errorbars: above we use geom_ribbon to get a smooth errorbar, but R has a neat function ```geom_errorbar()``` which will give typical errorbars. See below 
+
+```
+ggplot(data=stats, aes(x=time/3600, y=Average, group=Concentration)) +
+     geom_errorbar(aes(ymin=Average-SD, ymax=Average+SD), size=0.1) +
+     geom_point(aes(color=Concentration)) +
+     scale_color_gradientn(colours=rainbow(8)) +
+     facet_wrap(~Strain, nrow=2) +
+     labs(x="Time (Hours)", y="Optical Density 590 nm")
+```
 
 ### Statistics and other data adjustments
 * First we'll look at statistical transformations... like histograms
