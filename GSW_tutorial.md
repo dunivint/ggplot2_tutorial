@@ -13,6 +13,7 @@ Understand how to make graphs in R
 * [R and RStudio](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#r-and-rstudio)
 * [ggplot2](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#ggplot2)
  * [The basics](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#the-basics)
+ * [Growth curve]()
  * [Statistics and other data adjustments](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#statistics-and-other-data-adjustments)
 * [More resources](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#more-resources)
 ## Getting started
@@ -242,6 +243,17 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 
 
 * Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
+
+### Growth curve analysis (simple)
+First we will read and tidy growth curve data
+* Most growth curve outputs will allow time in one column and well in every other column, so we will use this as an example
+ * Most can also be exported as .csv
+ * If you can only export into excel, excel can convert to .csv files easily
+* We will include an information file that contains info per well
+ * I usually make this by hand
+ * Each row has all metadata for a single well
+ 
+
 
 ### Statistics and other data adjustments
 * First we'll look at statistical transformations... like histograms
