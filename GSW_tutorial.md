@@ -245,6 +245,9 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 * Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
 
 ### Faceting/Growth curve analysis
+Credit where credit is due: a lot of my growth curve analysis comes from [Brian Connelly](http://bconnelly.net/)
+In this tutorial we will use some of my gc data from multiple different strains with multiple different arsenic treatments
+ * The .R script can be found in this repository along with raw data and my platemap
 First we will read and tidy growth curve data
 * Most growth curve outputs will allow time in one column and well in every other column, so we will use this as an example
  * Most can also be exported as .csv
