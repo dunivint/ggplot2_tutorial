@@ -65,10 +65,16 @@ Understand how to make graphs in R
   - [psych](https://cran.r-project.org/web/packages/psych/psych.pdf): psychological tests but also correlations
   - [vegan](https://cran.r-project.org/web/packages/vegan/vegan.pdf): ordinations, diversity analysis
   - [pvclust](https://cran.r-project.org/web/packages/pvclust/pvclust.pdf): Hierarchical clustering
- 5. __And so much more!__
+ 5. __Microarray/ dif gene expression analysis__
+  - [Affy](https://www.bioconductor.org/packages/devel/bioc/manuals/affy/man/affy.pdf): analysis of affy microarrays
+  - [limma](https://www.bioconductor.org/packages/devel/bioc/manuals/limma/man/limma.pdf): linear models/ microarray analysis
+  - [oligo](https://www.bioconductor.org/packages/devel/bioc/manuals/oligo/man/oligo.pdf): another array analysis tool
+  - [annotate](https://www.bioconductor.org/packages/devel/bioc/manuals/annotate/man/annotate.pdf): annotation
+ 6. __And so much more!__
   - [survival](https://cran.r-project.org/web/packages/survival/survival.pdf): Survival analysis
   - [qpcR](https://cran.r-project.org/web/packages/qpcR/qpcR.pdf): qPCR analysis
   - [Other available packages](https://cran.r-project.org/web/packages/available_packages_by_name.html#available-packages-B)
+
   
  * To install a package, there is a simple function
   ```
