@@ -13,6 +13,7 @@ Understand how to make graphs in R
 * [R and RStudio](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#r-and-rstudio)
 * [ggplot2](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#ggplot2)
  * [The basics](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#the-basics)
+ * [Data labeling]()
  * [Faceting/Growth curves](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#facetinggrowth-curve-analysis)
  * [Statistics and other data adjustments](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#statistics-and-other-data-adjustments)
 * [More resources](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#more-resources)
@@ -244,6 +245,23 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 
 * Hopefully now you get the point of how easy it is to plot your data in different ways in ggplot2! 
 
+### Data labeling
+* Lets start thinking about sepal length and sepal width
+```
+ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, color=Species)) +
+  geom_point()
+```
+* BUT we have data for three separate flowers... we can fix this by labeling the flower types with color
+```
+ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, color=Species)) +
+  geom_point()
+```
+* We can also label them with shapes! See more about shape options [here](http://sape.inf.usi.ch/quick-reference/ggplot2/shape)
+```
+ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, shape=Species)) +
+  geom_point()
+```
+
 ### Faceting/Growth curve analysis
 Credit where credit is due: a lot of my growth curve analysis comes from [Brian Connelly](http://bconnelly.net/)
 In this tutorial we will use some of my gc data from multiple different strains with multiple different arsenic treatments
@@ -367,22 +385,7 @@ ggplot(iris, aes(x=Sepal.Width, fill=Species)) +
 ```
  <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/histo.black.color.jpeg" height="300">
 
-### Data labeling
-* Lets start thinking about sepal length and sepal width
-```
-ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, color=Species)) +
-  geom_point()
-```
-* BUT we have data for three separate flowers... we can fix this by labeling the flower types with color
-```
-ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, color=Species)) +
-  geom_point()
-```
-* We can also label them with shapes!
-```
-ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, shape=Species)) +
-  geom_point()
-```
+
 ---
 ## More resources
 * [Quick how-to's for graphing](http://www.cookbook-r.com/Graphs/)
