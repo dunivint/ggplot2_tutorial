@@ -81,6 +81,7 @@ Understand how to make graphs in R
   __6. And so much more!__
    - [survival](https://cran.r-project.org/web/packages/survival/survival.pdf): Survival analysis
    - [qpcR](https://cran.r-project.org/web/packages/qpcR/qpcR.pdf): qPCR analysis
+   - [phyloseq](https://www.bioconductor.org/packages/devel/bioc/manuals/phyloseq/man/phyloseq.pdf): metagenomic data analysis (mothur help, otu tables, etc)
    - [Other available packages](https://cran.r-project.org/web/packages/available_packages_by_name.html#available-packages-B)
 
   
