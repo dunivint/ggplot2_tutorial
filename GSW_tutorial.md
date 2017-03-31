@@ -397,3 +397,4 @@ ggplot(iris, aes(x=Sepal.Width, fill=Species)) +
 * [Amazing ggplot2 examples](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
 * [Tutorials with R data](https://www.mailman.columbia.edu/sites/default/files/media/fdawg_ggplot2.html)
 * [Coloring ggplot2 graphs](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
+* [ggplot themes](https://cran.r-project.org/web/packages/ggthemes/vignettes/ggthemes.html)
