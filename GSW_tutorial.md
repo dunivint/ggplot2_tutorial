@@ -11,6 +11,7 @@ Understand how to make graphs in R
 
 ## Table of contents
 * [R and RStudio](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#r-and-rstudio)
+* [Tidy Data](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#tidy-data)
 * [ggplot2](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#ggplot2)
  * [The basics](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#the-basics)
  * [Data labeling](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#data-labeling)
@@ -257,6 +258,27 @@ ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, shape=Species)) +
 ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, shape=Species, color=Species)) +
   geom_point()
 ```
+
+Wait a minute... what about using tidy data!? While the iris dataset is "clean" enough to make some simple plots with one or two variables, our tidy dataset is _much_ more scalable. 
+
+* First let's look at a boxplot with our ```tidydata``` made [earlier](https://github.com/dunivint/ggplot2_tutorial/blob/master/GSW_tutorial.md#tidy-data). We will use fill to show the Identity (measurement). __Question:__ What would ```color=Identity``` do?
+```
+ggplot(tidydata, aes(x=Species, y=Size, fill=Identity)) +
+  geom_boxplot() 
+```
+
+* We can also make a stacked bar chart
+```
+ggplot(tidydata, aes(x=Species, y=Size, fill=Identity)) +
+  geom_bar(stat="identity")
+```
+
+* Or a separated bar chart
+```
+ggplot(tidydata, aes(x=Species, y=Size, fill=Identity)) +
+  geom_bar(stat="identity", position="dodge")
+```
+__Exercise:__ Make a boxplot with the measurement (Identity) on the x axis
 
 ### Faceting/Growth curve analysis
 Credit where credit is due: a lot of my growth curve analysis comes from [Brian Connelly](http://bconnelly.net/)
