@@ -502,3 +502,4 @@ ggplot(iris, aes(x=Sepal.Width, fill=Species)) +
 * [Tutorials with R data](https://www.mailman.columbia.edu/sites/default/files/media/fdawg_ggplot2.html)
 * [Coloring ggplot2 graphs](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
 * [ggplot themes](https://cran.r-project.org/web/packages/ggthemes/vignettes/ggthemes.html)
+* [Tidyverse](http://tidyverse.org/index.html)
