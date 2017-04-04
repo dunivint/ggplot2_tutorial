@@ -126,10 +126,10 @@ install.packages("datasets")
 library(reshape2)
 library(datasets)
 ```
-Now that we have our required packages, we will read in our data. Note: R can read many data types (.csv, .delim, .txt); the read functions are all very similar (```read.csv```, ```read.delim```, ```read.table```)
+Now that we have our required packages, we will read in our data. R comes with iris pre-installed, so we will just need to make it a data frame (```data.frame()```), which is a tool in R for storing tables of data. __Note:__ R can read many data types (.csv, .delim, .txt); the read functions are all very similar (```read.csv```, ```read.delim```, ```read.table```)
 ```
 #read in data (here we will use a dataset from R datasets)
-data=read.delim(iris)
+data=data.frame(iris)
 
 #visualize the data (head shows first several rows in dataset; print would show whole dataset; tail shows bottom rows)
 head(data)
@@ -175,17 +175,6 @@ Now that we know the basics of tidy data, lets get to plotting!
   * See code below to generate first plot
  
  ```
- #make sure you installed the required packates
-install.packages("ggplot2")
-install.packages("datasets")
-
-#load required packages
-library(ggplot2)
-library(datasets)
-
-#read in data (here we will use a dataset from R datasets)
-data=read.delim(iris)
-
 #let's make an easy plot
 ggplot(iris, aes(x=Species, y=Sepal.Width))
 ```
@@ -249,7 +238,7 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 ### Data labeling
 * Lets start thinking about sepal length and sepal width
 ```
-ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, color=Species)) +
+ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length)) +
   geom_point()
 ```
 * BUT we have data for three separate flowers... we can fix this by labeling the flower types with color
@@ -260,6 +249,12 @@ ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, color=Species)) +
 * We can also label them with shapes! See more about shape options [here](http://sape.inf.usi.ch/quick-reference/ggplot2/shape)
 ```
 ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, shape=Species)) +
+  geom_point()
+```
+
+* Or we could label with both shape AND color
+```
+ggplot(iris, aes(x=Sepal.Width, y=Sepal.Length, shape=Species, color=Species)) +
   geom_point()
 ```
 
