@@ -318,11 +318,11 @@ annotated$time=as.numeric(annotated$Time)
 
 # Group the data by the different experimental variables and calculate the
 # sample size, average OD600, and standard deviation around the mean.
-  group_by(Strain, Concentration, time) %>%
+stats=group_by(annotated, Strain, Concentration, time) %>%
   summarise(N=length(OD590),
             Average=mean(OD590),
             SD=sd(OD590))
-            
+
 # Plot the average OD600 over time for each strain in each environment
 ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
   geom_ribbon(aes(ymin=Average-SD, ymax=Average+SD, color=Concentration),
@@ -331,18 +331,105 @@ ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concen
   scale_color_gradientn(colours=rainbow(8)) +
   facet_wrap(~Strain, nrow=2) +
   labs(x="Time (Hours)", y="Optical Density 590 nm")
+
+
+#GC without faceting 
+ggplot(data=stats, aes(x=time, y=Average)) +
+  geom_line() 
+
+#faceting by arsenic concentration (grid v. wrap)
+ggplot(data=stats, aes(x=time, y=Average)) +
+  geom_line() +
+  facet_grid(~Concentration)
+
+ggplot(data=stats, aes(x=time, y=Average)) +
+  geom_line() +
+  facet_wrap(~Concentration)
+
+
+#faceting by arsenic concentration (try facet_wrap Concentration and strain)
+ggplot(data=stats, aes(x=time, y=Average)) +
+  geom_line() +
+  facet_wrap(~Strain)
+
+ggplot(data=stats, aes(x=time, y=Average)) +
+  geom_line() +
+  facet_wrap(~Concentration)
+
+#add color to split variables further
+ggplot(data=stats, aes(x=time/3600, y=Average, color=Strain)) +
+  geom_line() +
+  facet_wrap(~Concentration)
+
+#add layer
+ggplot(data=stats, aes(x=time, y=Average, color=Concentration)) +
+  geom_line() +
+  facet_wrap(~Strain)
+
+#need to group!
+ggplot(data=stats, aes(x=time, y=Average, color=Concentration, group=Concentration)) +
+  geom_line() +
+  facet_wrap(~Strain)
+
+#improvements (color)
+ggplot(data=stats, aes(x=time, y=Average, color=Concentration, group=Concentration)) +
+  geom_line() +
+  facet_wrap(~Strain) +
+  scale_color_gradientn(colours=rainbow(8)) 
+
+#improvements (time)
+ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+  geom_line() +
+  facet_wrap(~Strain) +
+  scale_color_gradientn(colours=rainbow(8)) 
+
+#axes labels
+ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+  geom_line() +
+  facet_wrap(~Strain) +
+  scale_color_gradientn(colours=rainbow(8)) +
+  labs(x="Time (Hours)", y="OD590")
+
+#errorbars
+ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+  geom_ribbon(aes(ymin=Average-SD, ymax=Average+SD), color=NA, alpha=0.2) +
+  geom_line() +
+  facet_wrap(~Strain) +
+  scale_color_gradientn(colours=rainbow(8)) +
+  labs(x="Time (Hours)", y="OD590")
+
+#themes
+ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+  geom_ribbon(aes(ymin=Average-SD, ymax=Average+SD), color=NA, alpha=0.2) +
+  geom_line() +
+  facet_wrap(~Strain) +
+  scale_color_gradientn(colours=rainbow(8)) +
+  labs(x="Time (Hours)", y="OD590") +
+  theme_minimal()
+  
+#adjusting themes
+ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+  geom_ribbon(aes(ymin=Average-SD, ymax=Average+SD), color=NA, alpha=0.2) +
+  geom_line() +
+  facet_wrap(~Strain) +
+  scale_color_gradientn(colours=rainbow(8)) +
+  labs(x="Time (Hours)", y="OD590") +
+  theme_minimal(base_size = 11, base_family = "serif")
+
 ```
+__Exercise:__ try adding another layer of themes! add a ```+``` to your last line of code, and on the next line, type theme, then hit tab. Several options will come up. Pick one, and see how it changes the look of the graph with one simple change. 
+
 A quick note on errorbars: above we use geom_ribbon to get a smooth errorbar, but R has a neat function ```geom_errorbar()``` which will give typical errorbars. See below 
 
 ```
 ggplot(data=stats, aes(x=time/3600, y=Average, group=Concentration)) +
-     geom_errorbar(aes(ymin=Average-SD, ymax=Average+SD), size=0.1) +
-     geom_point(aes(color=Concentration)) +
-     scale_color_gradientn(colours=rainbow(8)) +
-     facet_wrap(~Strain, nrow=2) +
-     labs(x="Time (Hours)", y="Optical Density 590 nm")
+  geom_errorbar(aes(ymin=Average-SD, ymax=Average+SD)) +
+  geom_point(aes(color=Concentration)) +
+  facet_wrap(~Strain) +
+  scale_color_gradientn(colours=rainbow(8)) +
+  labs(x="Time (Hours)", y="OD590") +
+  xlim(0,10)
 ```
-Exercise: try adding another layer of themes! add a ```+``` to your last line of code, and on the next line, type theme, then hit tab. Several options will come up. Pick one, and see how it changes the look of the graph with one simple change. 
 
 ### Statistics and other data adjustments
 * First we'll look at statistical transformations... like histograms
