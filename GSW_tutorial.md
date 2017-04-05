@@ -161,7 +161,7 @@ Now that we know the basics of tidy data, lets get to plotting!
     * geometric object (points, lines, bars)
     * statistical transformations
     * scales & coordinate system 
-    * faceting
+    * faceting (subset data into separate plots)
  
 ### The basics
   * For this tutorial we will use the Iris dataset (comes with the R "datasets" package)
