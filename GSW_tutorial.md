@@ -480,6 +480,22 @@ ggplot(iris, aes(x=Sepal.Width, fill=Species)) +
 ```
  <img src="https://github.com/dunivint/ggplot2_tutorial/blob/master/Images/histo.black.color.jpeg" height="300">
 
+* ggplot2 will also measure certain statistics for you with ```stat_summary()``` of a dataset. For this you need the Hmisc package
+```
+#install
+install.packages("Hmisc")
+
+#load package
+library(Hmisc)
+
+#plot iris mean with 95% confidence intervals
+ggplot(iris, aes(x=Species, y=Sepal.Width)) +
+  stat_summary(fun.data=mean_cl_normal)
+
+#Or ploy iris mean with standard deviation
+ggplot(iris, aes(x=Species, y=Sepal.Width)) +
+  stat_summary(fun.data=mean_sdl)
+```
 
 ---
 ## More resources
