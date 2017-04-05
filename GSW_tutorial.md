@@ -154,6 +154,7 @@ Now that we know the basics of tidy data, lets get to plotting!
 * This system is widely used and flexible
 * Easy to work with large datasets
 * Quality default graphs; allows customization
+* Great _visual_ way to learn/ practice using R
 * We can think of ggplot2 as a system of layers that all add to one another to make a final graph
 * ggplot2 layers with [grammars of graphics](http://vita.had.co.nz/papers/layered-grammar.pdf)
     * data
