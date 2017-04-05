@@ -153,14 +153,14 @@ Now that we know the basics of tidy data, lets get to plotting!
 ## ggplot2
 * This system is widely used and flexible
 * Easy to work with large datasets
+* Quality default graphs; allows customization
 * We can think of ggplot2 as a system of layers that all add to one another to make a final graph
 * ggplot2 layers with [grammars of graphics](http://vita.had.co.nz/papers/layered-grammar.pdf)
     * data
-    * aesthetic mapping
-    * geometric object
+    * aesthetic mapping (color, shape size)
+    * geometric object (points, lines, bars)
     * statistical transformations
-    * scales
-    * position adjustments
+    * scales & coordinate system 
     * faceting
  
 ### The basics
