@@ -103,7 +103,7 @@ Tidy data is a specific data format that helps to distinguish between variables 
   * identity variables (ex: well A1 on a 96 well plate, time)
   * measured variables (ex: optical density) 
 * Observations => rows
-  * the complete information from one sample 
+  * the complete information from one observation
   * considers all identity and measured variables together
   * example: OD of well A1 at time 0
 * The image below shows the difference between messy and tidy data (modified from [Tidy data](http://vita.had.co.nz/papers/tidy-data.pdf))
