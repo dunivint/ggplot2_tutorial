@@ -496,6 +496,18 @@ ggplot(iris, aes(x=Species, y=Sepal.Width)) +
 ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   stat_summary(fun.data=mean_sdl)
 ```
+## Saving plots
+* There is always the export tab (exports to eps, tiff, jpeg, PDF, BMP, SVG, png)
+* Can accomplish through code as well
+```
+pdf("myplot.pdf")
+<PLOT>
+dev.off()
+```
+* ```ggsave()``` is another option. Specify file type with extension
+```
+ggsave(plot, file="/path/to/figure/location/figure.pdf")
+```
 
 ---
 ## More resources
