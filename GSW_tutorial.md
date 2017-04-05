@@ -136,8 +136,8 @@ data=data.frame(iris)
 head(data)
 ```
 We can see here that our data is currently wide, not long. We have multiple measured variables in separate columns. We can change that with the ```melt()``` function. 
-    * we will call on melt by saying ```melt()```
-    * within the parentheses, we will specify the data first then add more information. If you are unsure about what to add, the tab key will bring up what typically goes inside that function. Here we will specify id.vars (what variable is our sample ID), variable.name (what you want to call your variable), and value.name (the name of your measured variable) ```id.vars="Species", variable.name = "Identity", value.name="Size")```
+* we will call on melt by saying ```melt()```
+* within the parentheses, we will specify the data first then add more information. If you are unsure about what to add, the tab key will bring up what typically goes inside that function. Here we will specify id.vars (what variable is our sample ID), variable.name (what you want to call your variable), and value.name (the name of your measured variable) ```id.vars="Species", variable.name = "Identity", value.name="Size")```
 ```
 #tidy the data using melt
 tidydata=melt(data, id.vars="Species", variable.name = "Identity", value.name="Size")
