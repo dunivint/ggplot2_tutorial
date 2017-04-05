@@ -158,7 +158,7 @@ Now that we know the basics of tidy data, lets get to plotting!
 * We can think of ggplot2 as a system of layers that all add to one another to make a final graph
 * ggplot2 layers with [grammars of graphics](http://vita.had.co.nz/papers/layered-grammar.pdf)
     * data
-    * aesthetic mapping (color, shape size)
+    * aesthetic mapping (scales we map our data to, color, shape size)
     * geometric object (points, lines, bars)
     * statistical transformations
     * scales & coordinate system 
