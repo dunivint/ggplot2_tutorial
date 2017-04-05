@@ -50,7 +50,7 @@ Understand how to make graphs in R
   * Packages: all your stored packages and which are active (checked)
   * Help: shows manuals for all R packages
 
-* R has many packages useful for Biologists
+### R has many packages useful for Biologists
   
   __1. Data tidying__
    - [tidyr](https://cran.r-project.org/web/packages/tidyr/tidyr.pdf)
