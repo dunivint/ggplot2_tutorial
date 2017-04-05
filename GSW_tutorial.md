@@ -492,7 +492,7 @@ library(Hmisc)
 ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   stat_summary(fun.data=mean_cl_normal)
 
-#Or ploy iris mean with standard deviation
+#Or plot iris mean with standard deviation
 ggplot(iris, aes(x=Species, y=Sepal.Width)) +
   stat_summary(fun.data=mean_sdl)
 ```
