@@ -293,12 +293,14 @@ First we will read and tidy growth curve data
  * Each row has all metadata for a single well
  
  ```
+#much of this tutorial comes from Brian Connelly's tutorial
+#(http://bconnelly.net/2014/04/analyzing-microbial-growth-with-r/)
+
 library(reshape2)
 library(dplyr)
 library(ggplot2)
 
-# Read in the raw data and the platemap. You may need to first change your
-# working directory with the setwd command.
+# Read in the raw data
 rawdata <- read.csv("gc.rawdata.csv")
 
 #read in platemap (created manually)
@@ -310,110 +312,97 @@ labels=c("Time", "A01", "A02", "A03", "A04", "A05", "A06", "A07", "A08", "A09", 
 #make well names column names
 colnames(rawdata)=labels
 
-#remove s from time column
+#remove s from time column (this is probably unique to my gc output)
 rawdata$Time=gsub('s', '', rawdata$Time)
 
-# Reshape the data. Instead of rows containing the Time, Temperature,
-# and readings for each Well, rows will contain the Time, Temperature, a
-# Well ID, and the reading at that Well.
+# Tidy the data: move from wide (each well as a column)
+# to long (one column with all wells)
 reshaped <- melt(rawdata, id="Time", variable.name="Well",
                  value.name="OD590")
 
-# Add information about the experiment from the plate map. For each Well
-# defined in both the reshaped data and the platemap, each resulting row
-# will contain the absorbance measurement as well as the additional columns
-# and values from the platemap.
+# Put plate map info next to each corresponding well
 annotated <- inner_join(reshaped, platemap, by="Well")
-
-#write function to give confidence intervals
-conf_int95 <- function(data) {
-  n <- length(data)
-  error <- qt(0.975, df=n-1) * sd(data)/sqrt(n)
-  return(error)
-}
 
 #make OD590 a number
 annotated$OD590=as.numeric(annotated$OD590)
 
 #make time a number
-annotated$time=as.numeric(annotated$Time)
+annotated$Time=as.numeric(annotated$Time)
 
 # Group the data by the different experimental variables and calculate the
-# sample size, average OD600, and standard deviation around the mean.
-stats=group_by(annotated, Strain, Concentration, time) %>%
+# sample size, average OD590, and standard deviation around the mean.
+stats=group_by(annotated, Strain, Concentration, Time) %>%
   summarise(N=length(OD590),
             Average=mean(OD590),
             SD=sd(OD590))
 
-# Plot the average OD600 over time for each strain in each environment
-ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+# Plot the average OD590 over time for each strain in each environment
+ggplot(data=stats, aes(x=Time/3600, y=Average, color=Concentration, group=Concentration)) +
   geom_ribbon(aes(ymin=Average-SD, ymax=Average+SD, color=Concentration),
               color=NA, alpha=0.3) +
   geom_line(aes(color=Concentration)) +
   scale_color_gradientn(colours=rainbow(8)) +
   facet_wrap(~Strain, nrow=2) +
-  labs(x="Time (Hours)", y="Optical Density 590 nm")
+  labs(x="Time (Hours)", y="OD590")
 
-
+##Let's start plotting from the beginning
 #GC without faceting 
-ggplot(data=stats, aes(x=time, y=Average)) +
+ggplot(data=stats, aes(x=Time, y=Average)) +
   geom_line() 
 
 #faceting by arsenic concentration (grid v. wrap)
-ggplot(data=stats, aes(x=time, y=Average)) +
+ggplot(data=stats, aes(x=Time, y=Average)) +
   geom_line() +
   facet_grid(~Concentration)
 
-ggplot(data=stats, aes(x=time, y=Average)) +
+ggplot(data=stats, aes(x=Time, y=Average)) +
   geom_line() +
   facet_wrap(~Concentration)
 
 
-#faceting by arsenic concentration (try facet_wrap Concentration and strain)
-ggplot(data=stats, aes(x=time, y=Average)) +
+#What if we facet by strain?
+ggplot(data=stats, aes(x=Time, y=Average)) +
   geom_line() +
   facet_wrap(~Strain)
-
-ggplot(data=stats, aes(x=time, y=Average)) +
-  geom_line() +
-  facet_wrap(~Concentration)
 
 #add color to split variables further
-ggplot(data=stats, aes(x=time/3600, y=Average, color=Strain)) +
+ggplot(data=stats, aes(x=Time, y=Average, color=Strain)) +
   geom_line() +
   facet_wrap(~Concentration)
 
-#add layer
-ggplot(data=stats, aes(x=time, y=Average, color=Concentration)) +
+#try the same thing but facet by strain
+ggplot(data=stats, aes(x=Time, y=Average, color=Concentration)) +
   geom_line() +
   facet_wrap(~Strain)
 
-#need to group!
-ggplot(data=stats, aes(x=time, y=Average, color=Concentration, group=Concentration)) +
+#For comparing concentrations, we need to group! 
+#(think about our earlier groupings where we put
+#strain ahead of concentration)
+ggplot(data=stats, aes(x=Time, y=Average, color=Concentration, group=Concentration)) +
   geom_line() +
   facet_wrap(~Strain)
 
 #improvements (color)
-ggplot(data=stats, aes(x=time, y=Average, color=Concentration, group=Concentration)) +
+ggplot(data=stats, aes(x=Time, y=Average, color=Concentration, group=Concentration)) +
   geom_line() +
   facet_wrap(~Strain) +
   scale_color_gradientn(colours=rainbow(8)) 
 
 #improvements (time)
-ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+ggplot(data=stats, aes(x=Time/3600, y=Average, color=Concentration, group=Concentration)) +
   geom_line() +
   facet_wrap(~Strain) +
   scale_color_gradientn(colours=rainbow(8)) 
 
 #axes labels
-ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+ggplot(data=stats, aes(x=Time/3600, y=Average, color=Concentration, group=Concentration)) +
   geom_line() +
   facet_wrap(~Strain) +
   scale_color_gradientn(colours=rainbow(8)) +
   labs(x="Time (Hours)", y="OD590")
 
 #errorbars
-ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+ggplot(data=stats, aes(x=Time/3600, y=Average, color=Concentration, group=Concentration)) +
   geom_ribbon(aes(ymin=Average-SD, ymax=Average+SD), color=NA, alpha=0.2) +
   geom_line() +
   facet_wrap(~Strain) +
@@ -421,23 +410,22 @@ ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concen
   labs(x="Time (Hours)", y="OD590")
 
 #themes
-ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+ggplot(data=stats, aes(x=Time/3600, y=Average, color=Concentration, group=Concentration)) +
   geom_ribbon(aes(ymin=Average-SD, ymax=Average+SD), color=NA, alpha=0.2) +
   geom_line() +
   facet_wrap(~Strain) +
   scale_color_gradientn(colours=rainbow(8)) +
   labs(x="Time (Hours)", y="OD590") +
   theme_minimal()
-  
-#adjusting themes
-ggplot(data=stats, aes(x=time/3600, y=Average, color=Concentration, group=Concentration)) +
+
+#fonts in themes
+ggplot(data=stats, aes(x=Time/3600, y=Average, color=Concentration, group=Concentration)) +
   geom_ribbon(aes(ymin=Average-SD, ymax=Average+SD), color=NA, alpha=0.2) +
   geom_line() +
   facet_wrap(~Strain) +
   scale_color_gradientn(colours=rainbow(8)) +
   labs(x="Time (Hours)", y="OD590") +
-  theme_minimal(base_size = 11, base_family = "serif")
-
+theme_minimal(base_size = 11, base_family = "serif")
 ```
 __Exercise:__ try adding another layer of themes! add a ```+``` to your last line of code, and on the next line, type theme, then hit tab. Several options will come up. Pick one, and see how it changes the look of the graph with one simple change. 
 
